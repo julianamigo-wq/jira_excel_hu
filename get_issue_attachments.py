@@ -5,36 +5,16 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor # ¡Nuevo! Para concurrencia
 
 # =========================================================================
-# --- DEPENDENCIAS DEL USUARIO (AJUSTAR SEGÚN TU PROYECTO) ---
-# DEBES REEMPLAZAR 'your_module' con el nombre de tu módulo real.
 try:
     from services.process_doc import ProcessDOC
     from services.email import enviar_email
     from services.iachat import send_chat
     from services.formatxlsx import createxlsx
     from services.upload_attachment_to_jira import upload_attachment_to_jira
-except ImportError:
-    # Definiciones ficticias para que el código sea estructuralmente visible.
-    # EL USUARIO DEBE ELIMINAR ESTO EN SU ENTORNO REAL.
-    class ProcessDOC:
-        def __init__(self, file_path):
-            self.file_path = file_path
-        def process(self):
-            # Simulación: devuelve texto extraído
-            return "Texto de ejemplo de la HU." if "hu" in self.file_path else ""
-    def send_chat(text):
-        # Simulación: devuelve un texto procesado por IA
-        return f"Respuesta de IA basada en: {text[:20]}..."
-    def createxlsx(data, path):
-        print(f"    - Archivo XLSX creado con éxito en: {path.name}")
-        return True
-    def upload_attachment_to_jira(issue_key, file_path, jira_url, jira_user, jira_token):
-        # Simulación de subida exitosa
-        return True
-    def enviar_email(file_list):
-        print(f"\nCierre del Proceso: EMAIL ENVIADO.")
-        print(f"Lista de archivos adjuntos en el email: {file_list}")
-        return True
+except ImportError as e:
+    # Mantener el manejo de errores simple y claro
+    print(f"ERROR CRÍTICO de importación: {e}. Verifique la estructura de carpetas de 'services'.")
+    sys.exit(1) # Forzar la salida si falla
 # =========================================================================
 
 # --- CONFIGURACIÓN ---
