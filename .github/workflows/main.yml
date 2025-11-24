@@ -28,12 +28,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        # Instala todas las librerías necesarias: requests (Jira API), 
-        # pypdf, python-docx (extracción), y openai (chat/IA).
+        # Añade openpyxl y las otras librerías necesarias para todo tu flujo
         run: |
-          pip install requests pypdf python-docx openai
-          # NOTA: Si necesitas otros paquetes de tu proyecto (ej: para createxlsx o send_chat),
-          # agrégalos aquí o usa un requirements.txt.
+          pip install requests pypdf python-docx openai openpyxl
 
       - name: Run Jira Attachments Script
         # Ejecuta el script principal, pasando la clave del ticket como argumento.
