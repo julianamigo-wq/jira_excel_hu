@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Jira Attachments Script
         # Ejecuta el script principal, pasando la clave del ticket como argumento.
-        run: python get_attachments.py ${{ github.event.client_payload.issue_key }}
+        run: python get_issue_attachments.py ${{ github.event.client_payload.issue_key }}
         
         env:
           # --- Variables de Entorno de JIRA (existentes) ---
