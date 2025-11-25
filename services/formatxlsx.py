@@ -1,10 +1,11 @@
 import openpyxl
 import csv
+import uuid
 from io import StringIO
 from openpyxl.styles import Font, PatternFill, Alignment
 from pathlib import Path # Necesitamos Path para manejar rutas de forma limpia
 
-def createxlsx(csv_text: str, target_dir: Path):
+def createxlsx(csv_text: str, target_dir: Path, name_issue: str):
     """
     Convierte el texto CSV en un archivo XLSX, aplica formato y lo guarda
     en el directorio especificado.
@@ -67,7 +68,13 @@ def createxlsx(csv_text: str, target_dir: Path):
         sheet.column_dimensions[column].width = max_length
 
     # 5. CONSTRUCCIÓN DE LA RUTA DE GUARDADO Y ALMACENAMIENTO (¡NUEVA LÓGICA!)
-    nombre_base = "Casos_de_Prueba_Formateado.xlsx"
+    
+    # Generar un ID único corto (ej: '5a4c3f9e')
+    unique_id = uuid.uuid4().hex[:8]
+    
+    # Construcción del nombre: CP_NAMEISSUE_UNIQUEID.xlsx
+    # Ejemplo: CP_PROYECTO-123_5a4c3f9e.xlsx
+    nombre_base = f"CP_{name_issue}_{unique_id}.xlsx"
     
     # Combinar la ruta de destino (target_dir) con el nombre del archivo
     ruta_guardado = target_dir / nombre_base 
