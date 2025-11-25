@@ -120,11 +120,11 @@ def process_attachment_flow(att, target_dir, jira_issue_key, jira_url, jira_user
             
             if file_text:
                 # b) Enviar a la función de Chat (IA)
-                ai_text = send_chat(file_text)
+                ai_text = send_chat(file_text, JIRA_ISSUE_KEY)
                 
                 if ai_text:
                     # c) Generar archivo XLSX
-                    createxlsx(ai_text, target_dir)
+                    createxlsx(ai_text, target_dir, JIRA_ISSUE_KEY)
                     print(f"  - Flujo HU Terminado: {filename}")
                 else:
                     print(f"  - Flujo HU: Falló la respuesta de IA para {filename}.")
