@@ -195,7 +195,7 @@ def get_issue_attachments():
         final_files = [f.name for f in target_dir.iterdir() if f.is_file()]
         
         # 2. Llama a la función enviar_email con la lista de nombres de archivos
-        enviar_email(final_files)
+        enviar_email(final_files, JIRA_ISSUE_KEY)
 
     except requests.exceptions.HTTPError as e:
         print(f"Error HTTP al llamar a la API de Jira: {e}")
