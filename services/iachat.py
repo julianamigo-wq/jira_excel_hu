@@ -11,8 +11,7 @@ A continuación, te proporcionaré la información de una Historia de Usuario. T
 esta historia, identificar los requisitos clave, y generar una lista de Casos de Prueba (Test Cases)
 que cubran las funcionalidades descritas, incluyendo escenarios positivos, negativos y de borde
 cuando sea pertinente.El formato de respuesta debe ser una tabla sencilla con las siguientes columnas
-para cada caso de prueba, utilizando únicamente la coma (,) como delimitador para separar los campos,
-sin incluir comas dentro del contenido de las celdas:
+para cada caso de prueba, utilizando únicamente el punto y coma (;) como delimitador para separar los campos:
 ID del Caso: Debe seguir el formato numero_correlativo_{issue_code} (ej: 1_{issue_code}, 2_{issue_code}, 3_{issue_code}, etc).
 Nombre/Descripción del Caso
 Pasos a Seguir
