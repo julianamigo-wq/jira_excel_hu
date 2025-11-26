@@ -17,12 +17,12 @@ def createxlsx(csv_text: str, target_dir: Path, name_issue: str):
     # ... (Sin cambios) ...
     verde_claro = "CCFFCC" 
     fill_header = PatternFill(start_color=verde_claro, end_color=verde_claro, fill_type="solid")
-    font_header = Font(name='Calibri', size=12, bold=True, color="000000")
+    font_header = Font(name='Calibri', size=14, bold=True, color="000000")
     alignment_header = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
     # --- 2. PREPARACIÓN Y PARSEO DE DATOS ---
     csv_file = StringIO(csv_text.strip())
-    csv_reader = csv.reader(csv_file)
+    csv_reader = csv.reader(csv_file, delimiter=';') # <-- ¡MODIFICADO!
 
     # 3. CREACIÓN DEL LIBRO Y ESCRITURA
     workbook = openpyxl.Workbook()
